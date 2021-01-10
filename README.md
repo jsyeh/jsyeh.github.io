@@ -31,3 +31,7 @@ About 關於 jsyeh.github.io
 7. 最後, `git push` 便可以把你電腦倉庫裡的檔案, 都 push(推送) 到 github 上面
 
 稍等一下, 便能在你的網站網址 `jsyeh.github.com` 看到你剛剛完成的網頁。之後在你的電腦裡 重覆步驟 4,5,6,7  編輯/上傳你的網頁, 就會越做越好。
+
+相關資料
+--------
+1. [使用 GitHub 免費製作個人網站 https://gitbook.tw/chapters/github/using-github-pages.html ](https://gitbook.tw/chapters/github/using-github-pages.html)
