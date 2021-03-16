@@ -1,0 +1,472 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="GENERATOR" content="Microsoft FrontPage 12.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Computer Graphics</title>
+</head>
+
+<body>
+<font face="Comic Sans MS">
+
+<table width="100%" cellpadding="5" bgcolor="#800000" border="1">
+<tr>
+<td rowspan="4"><font color="#ffffff" size="+1">3D 圖學<!-- & 進階 3D 圖學 & 影像處理--><br>3D Graphics<!-- & Advanced 3D Graphics & Image Processing--></font></td>
+</tr>
+<tr>
+<td><font color="#ffffff">教師</font></td>
+<td><font color="#ffffff">葉正聖<!-- 陳炳宇 && 吳賦哲 & 葉正聖 & 莊永裕--></font></td>
+</tr>
+<tr>
+<td><font color="#ffffff">時間</font></td>
+<td><font color="#ffffff">每週二 09:30-12:30</td>
+</tr>
+<tr>
+<td><font color="#ffffff">教室</font></td>
+<td><font color="#ffffff">數位內容學院</font></td>
+</tr>
+</table>
+
+<!--
+<hr><H3><font color="#AA3333">What's New</font></H3>
+<ul>
+	The temporary <a href="cg03score.htm">score</a> has been published, please contact with TA or me ASAP if you have any problem.
+</ul>
+-->
+
+<hr><h3><font color="#AA3333">Syllabus</font></h3>
+<ul>
+<table border="2">
+<tr><td>05/04</td>
+	<td>Introduction [<a href="ppt/3dcg10_01intro.pdf">PDF</a>]
+		<font size="-1">
+		<ul>What is Computer Graphics ?<br>
+			The Graphics Process<br>
+			Color Models<br>
+			Triangle Meshes<br>
+			The Rendering Pipeline<br>
+		</ul>
+		</font>
+		Basic Raster Graphics Algorithms for Drawing 2D Primitives [<a href="ppt/3dcg10_02draw2d.pdf">PDF</a>]
+		<font size="-1">
+		<ul>Architecture of a Raster Display<br>
+			Scan Converting Lines<br>
+			Filling Rectangles<br>
+			Filling Polygons<br>
+			Clipping Lines<br>
+			Clipping Polygons<br>
+			Antialiasing<br>
+		</ul>
+		</font>
+		OpenGL
+		<font size="-1">
+		<ul>General OpenGL Induction &amp; An Example OpenGL Program [<a href="ppt/3dcg10_alogl_01intro.pdf">PDF</a>]<br>
+			Drawing with OpenGL [<a href="ppt/3dcg10_alogl_02draw.pdf">PDF</a>]<br>
+		</ul>
+		</font>
+		Examples: [<a href="opengl/source.zip">source</a>][<a href="opengl/data.zip">data</a>][<a href="opengl/windows.zip">win32</a>][<strike>linux</strike>][<strike>mac</strike>][<strike>sgi</strike>]<font size="-1"> (these examples are for all following OpenGL introductions)</font><br>
+		Other Examples: [<a href="opengl/simple.c">simple.c</a>][<a href="opengl/opengl14.zip">samples in red book</a>/<a href="opengl/openglbkexe.zip">win32</a>][<a href="opengl/angel.zip">samples in Angel's book</a>][<a href="opengl/glut_test.zip">test programs of GLUT</a>]
+		<font size="-1">
+		<ul>Remember to download the data with the source or win32 / linux / mac / sgi executable codes and uncompress them in the same directory.
+			Don't forget to install GLUT package if you are using Linux / MAC / SGI.
+			While using Win32 environment, please download <a href="opengl/glut32.dll">glut32.dll</a> and put it at c:\windows\system32\ .
+			If you want to compile the source codes on Win32 environment using Visual Studio (ex. ver. 2005),
+			please put <a href="opengl/glut.h">glut.h</a> and <a href="opengl/glut32.lib">glut32.lib</a>
+			to c:\program files\microsoft visual studio 8\vc\platformsdk\include\gl
+			and  c:\program files\microsoft visual studio 8\vc\platformsdk\lib, respectively.
+		</ul>
+		</font>
+		Other On-line Resources:
+		<ul>
+			<a href="https://web.archive.org/web/20180115112440/http://www.glprogramming.com/red/">The OpenGL "Redbook" v1.1</a><br> 
+			<a href="https://web.archive.org/web/20180115112440/http://www.glprogramming.com/blue/">The OpenGL "Bluebook" v1.0</a><br> 
+			<a href="https://web.archive.org/web/20180115112440/http://www.opengl.org/resources/libraries/glut/spec3/spec3.html">GLUT 3 Specification</a><br> 
+		</ul>
+	</td></tr>
+<tr><td>05/11</td>
+	<td>Geometrical Transformations [<a href="ppt/3dcg10_03trans.pdf">PDF</a>]
+		<font size="-1">
+		<ul>Mathematical Preliminaries<br>
+			2D Transformations<br>
+			Homogeneous Coordinates and Matrix Representation<br>
+			The Window-to-Viewport Transformation<br>
+			3D Transformations<br>
+		</ul>
+		</font>
+	</td></tr>
+<tr><td>05/18</td>
+	<td>Viewing in 3D [<a href="ppt/3dcg10_04view.pdf">PDF</a>]
+		<font size="-1">
+		<ul>3D Viewing Process<br>
+			Classical Viewing and Projections<br>
+			3D Synthetic Camera Model<br>
+			Specification of an Arbitrary 3D View<br>
+			Parallel Projection<br>
+			Perspective Projection<br>
+			3D Clipping for Canonical View Volume<br>
+		</ul>
+		</font>
+		OpenGL: <font size="-1">Transformations</font> [<a href="ppt/3dcg10_alogl_03trans.pdf">PDF</a>]
+	</td></tr>
+<tr><td>05/25</td>
+	<td>Visible-Surface Determination [<a href="ppt/3dcg10_05visur.pdf">PDF</a>]
+		<font size="-1">
+		<ul>Back-Face Culling<br>
+			The Depth-Sort Algorithm<br>
+			The z-Buffer Algorithm<br>
+			Scan-Line Algorithm<br>
+			Visible-Surface Ray Tracing<br>
+			Warnock's Algorithm<br>
+		</ul>
+		</font>
+		OpenGL: <font size="-1">Animation and Depth Buffering</font> [<a href="ppt/3dcg10_alogl_04ani.pdf">PDF</a>]
+	</td></tr>
+<tr><td>06/01</td>
+	<td>Illumination and Shading [<a href="ppt/3dcg10_06illum.pdf">PDF</a>]
+		<font size="-1">
+		<ul>Illumination Models<br>
+			Shading Models for Polygons<br>
+			Surface Detail<br>
+			Shadows<br>
+			Transparency<br>
+			Global Illumination Algorithms<br>
+			Recursive Ray Tracing<br>
+			Radiosity Methods<br>
+			The Rendering Pipeline<br>
+		</ul>
+		</font>
+		OpenGL: <font size="-1">Lighting</font> [<a href="ppt/3dcg10_alogl_05light.pdf">PDF</a>]
+	</td></tr>
+<tr><td><font color="#C0C0C0">06/08</font></td>
+	<td>Texture Mapping [<a href="ppt/3dcg10_10tex.pdf">PDF</a>]
+		<font size="-1">
+		<ul>Texture Mapping<br>
+			Texture Aliasing<br>
+			MIPmaps<br>
+			Environment Maps<br>
+			Bump Mapping<br>
+			Displacement Mapping<br>
+			Shadow Maps<br>
+			Solid Textures<br>
+		</ul>
+		</font>
+	OpenGL: <font size="-1">Texture Mapping</font> [<a href="ppt/3dcg10_alogl_07tex.pdf">PDF</a>]
+		<p>
+		Other Resources:
+		<ul>
+			<a href="https://web.archive.org/web/20180115112440/http://www.libpng.org/pub/png/libpng.html">libpng</a>, 
+			<a href="https://web.archive.org/web/20180115112440/http://www.ijg.org/">libjpeg</a>
+		</ul>
+	</td></tr>
+<!--<tr><td><font color="#C0C0C0">06/15</font></td>
+	<td>OpenGL: <font size="-1">Advanced OpenGL Topics and Imaging</font> [<a href="ppt/3dcg08_ogl_08adv.pdf">PDF</a>]
+	</td></tr>-->
+<!--
+<tr><td>10/20</td>
+	<td>3D Object Representations [<a href="ppt/3dcg07_07model.pdf">PDF</a>]
+		<font size="-1">
+		<ul>What are 3D objects?<br>
+			The Graphics Process<br>
+			3D Object Representations<br>
+			Procedural Modeling<br>
+		</ul>
+		</font>
+		Definitions and Data Structures of Meshes [<a href="ppt/3dcg07_09mesh.pdf">PDF</a>]
+		<font size="-1">
+		<ul>Graph<br>
+			Mesh<br>
+			Properties of Mesh<br>
+			Triangle Meshes<br>
+			Mesh Data Structures<br>
+		</ul>
+		</font>
+	</td></tr>
+<tr><td>11/3<br>11/10</td>
+	<td>Real-Time Shading<font size="-1"> - using GPU</font> [<a href="http://graphics.csie.ntu.edu.tw/~firebird/dokuwiki/doku.php?id=tech:courses:dci_rts:home">WEB</a>]
+	</td></tr>
+<tr><td>11/17<br>11/24</td>
+	<td>Curves and Surfaces [<a href="ppt/3dcg07_08cursur.pdf">PDF</a>]
+		<font size="-1">
+		<ul>Mathematical Curve Representation<br> 
+			Parametric Cubic Curves<br>
+			Parametric Bi-Cubic Surfaces<br>
+		</ul>
+		</font>
+		OpenGL: <font size="-1">Evaluators and NURBS</font> [<a href="ppt/3dcg07_a1ogl_06eva.pdf">PDF</a>]
+	</td></tr>
+<tr><td>11/17</td>
+	<td>Solid Modeling [<a href="ppt/3dcg07_12solid.pdf">PDF</a>]
+		<font size="-1">
+		<ul>Regularized Boolean Set Operations<br>
+			Boundary Representations<br>
+			Spatial-Partitioning Representations<br>
+			Implicit Surfaces<br>
+			Constructive Solid Geometry<br>
+		</ul>
+		</font>
+	</td></tr>
+<tr><td>11/24</td>
+	<td>Computer Animation [<a href="ppt/3dcg07_11ani.pdf">PDF</a>]
+		<font size="-1">
+		<ul>What is Animation ?<br>
+			Traditional Animation<br>
+			Key-Frame Animation<br>
+			Hierarchical Modeling<br>
+			Kinematics<br>
+			Free-From Deformation<br> 
+		</ul>
+		</font>
+	</td></tr>
+-->
+</table>
+</ul>
+
+<hr><h3><font color="#AA3333">Homework</font></h3>
+<ul>
+<!--
+OpenGL examples and on-line resources:
+	<p>
+	<ul>
+		Examples: [<a href="opengl/source.zip">source</a>][<a href="opengl/data.zip">data</a>][<a href="opengl/windows.zip">win32</a>][<a href="opengl/linux.zip">linux</a>][<a href="opengl/mac.zip">mac</a>][<a href="opengl/sgi.zip">sgi</a>]<font size="-1"> (these examples are for all following OpenGL introductions)</font><br>
+		Other Examples: [<a href="opengl/simple.c">simple.c</a>][<a href="opengl/opengl14.zip">samples in red book</a>/<a href="opengl/openglbkexe.zip">win32</a>][<a href="opengl/angel.zip">samples in Angel's book</a>][<a href="opengl/glut_test.zip">test programs of GLUT</a>]
+		<font size="-1">
+		<ul>Remember to download the data with the source or win32 / linux / mac / sgi executable codes and uncompress them in the same directory.
+			Don't forget to install GLUT package if you are using Linux / MAC / SGI.
+			While using Win32 environment, please download <a href="opengl/glut32.dll">glut32.dll</a> and put it at c:\windows\system32\ .
+			If you want to compile the source codes on Win32 environment using Visual Studio (ex. ver. 2005),
+			please put <a href="opengl/glut.h">glut.h</a> and <a href="opengl/glut32.lib">glut32.lib</a>
+			to c:\program files\microsoft visual studio 8\vc\platformsdk\include\gl
+			and  c:\program files\microsoft visual studio 8\vc\platformsdk\lib, respectively.
+		</ul>
+		</font>
+		<p>
+		Other On-line Resources:
+		<ul>
+			<a href="http://www.glprogramming.com/red/">The OpenGL "Redbook" v1.1</a><br> 
+			<a href="http://www.glprogramming.com/blue/">The OpenGL "Bluebook" v1.0</a><br> 
+			<a href="http://www.opengl.org/resources/libraries/glut/spec3/spec3.html">GLUT 3 Specification</a><br> 
+		</ul>
+		</ul>
+<p>
+-->
+<ol>
+<li>Build a program with a friendly GUI using <a href="https://web.archive.org/web/20180115112440/http://www.opengl.org/">OpenGL</a>  (also <a href="https://web.archive.org/web/20180115112440/http://www.opengl.org/resources/libraries/glut.html">GLUT</a> and <a href="https://web.archive.org/web/20180115112440/http://www.nigels.com/glt/glui/">GLUI</a> or <a href="https://web.archive.org/web/20180115112440/http://www.fltk.org/">FLTK</a>)<!-- and/or other libraries like MFC-->.
+	<ul>
+		Please use C/C++ as the programming language.<br>
+<!--
+		You can use any platform you want, for example a Wintel / Linux PC or Unix-base workstation.<br>
+-->
+		Request functions: <font color="blue">create a window, add menu control</font><br>
+		Bonus functions: <font color="blue">good GUI</font><br>
+		<font color="red">deadline = 05/11</font>
+	</ul>
+<li>Build a program <!--with a friendly GUI using <a href="http://www.opengl.org/">OpenGL</a>  (also <a href="http://www.opengl.org/resources/libraries/glut.html">GLUT</a> or <a href="http://www.fltk.org/">FLTK</a>) --><!--and/or other libraries like MFC--> for showing one or two primitives, like sphere or cube, in <font color="green">wireframe</font> mode.
+	<ul>
+		Use the program of homework #1 as the base.<br>
+		Request functions: <font color="blue"><!--create a window, add menu control, -->3D transformations (translation, rotation, scaling) and projections (parallel, perspective) by mouse and keyboard, change background and wireframe colors, double-buffer</font><br>
+		Bonus functions: <font color="blue">virtual trackball, clipping plane, visible-surface determination (back-face culling)</font><br>
+		<font color="red">deadline = 06/01</font> 
+	</ul>
+<li>Build a program for showing one or two primitives in <font color="green">shading</font> mode.
+	<ul>
+		Use the program of homework #2 as the base.<br>
+		Request functions: <font color="blue">multiple light sources (at least 2), shading (flat, Gouraud), depth-buffer</font><br>
+		Bonus functions: <font color="blue">shadows, transparency</font><br>
+		<font color="red">deadline = 06/08</font>
+	</ul>
+    <ul><a href="iiigamehomeworks.zip">homeworks.zip</a>
+    </ul>
+<!--
+<li>Build a program for showing <a href="model/index.html">3D models</a> in <font color=green>shading</font> mode.
+	<ul>
+		Use the program of homework #3 as the base.<br>
+		You can use model loading libraries to do so.<br>
+		Bonus functions: <font color=blue>write model, read other 3D model formats, support your own model format</font><br>
+		<font color=red>deadline = 8/23</font>
+	</ul>
+<li>Build a program for showing one or two primitives with <font color=green>texture mapping</font>.
+	<ul>
+		Use the program of homework #2 as the base.<br>
+		You can use image loading libraries to do so.<br>
+		Bonus functions: <font color=blue>mip-mapping, environment mapping, read several image formats</font><br>
+		<font color=red>deadline = 10/20</font>
+	</ul>
+-->
+</ol>
+</ul>
+
+<!--
+<hr><H3><font color="#AA3333">Project</font></H3>
+<ul>
+<i>
+We will use the skeleton code used in <a href="http://www.cs.washington.edu/education/courses/cse457/">CSE 457</a> at <a href="http://www.washington.edu/">University of Washington</a> as a starting point.
+Please download <a href="http://www.cs.washington.edu/education/courses/cse457/CurrentQtr/projects/animator/linkedItems/07sp-animator-skeleton.zip">the skeleton code</a> first.
+Before compiling the skeleton code using Microsoft Visual C++ compiler,
+you should have fltk installed on your computer because the skeleton code is based on <a href="http://www.fltk.org/">fltk</a>.
+Please download <a href="http://www.cs.washington.edu/education/courses/cse457/CurrentQtr/tools/fltk-1.1.7.zip">this fltk precompiled package</a> and unzip it to your disk. 
+</i>
+<p>
+In this project, you have three tasks to finish:
+<ul>
+<li>Create a hierarchical model: A hierarchical model is a way of grouping together shapes and attributes to form a complex object. Parts of the object are defined in relationship to each other as opposed to their position in some absolute coordinate system. Think of each object as a tree, with nodes decreasing in complexity as you move from root to leaf. Each node can be treated as a single object, so that when you modify a node you end up modifying all its children together. You will use OpenGL to implement a hierarchical model in this project. 
+<li>Finish several curve interpolation modules: The skeleton code currently only support linear interpolation, please extend it to support multiple curve types. You are required to implement Bezier and Catmull-Rom curves. The others are left as bonus. 
+<li>Animate your hierarchical model to make an aimation: Given the skeleton code and your own curve interpoltion modules, you now can use this curve-based animation system to animate your model and produce an animation. 
+</ul>
+<p>
+Some commands to use animator: 
+<ul>
+<li>alt + select a group of points: selection 
+<li>shift + click on a control point : remove a control point 
+<li>right mouse button + drag : zoom in/out 
+<li>right mouse button + shift + drag : pan 
+</ul>
+<p>
+For more details, you can refer to UW CSE's webpages for <a href="http://www.cs.washington.edu/education/courses/cse457/CurrentQtr/projects/modeler/index.html">modeler</a> and <a href="http://www.cs.washington.edu/education/courses/cse457/CurrentQtr/projects/animator/index.html">animator</a>. 
+<p>
+We will have an in-class presentation to show your classmates your animation. Please also send me all your source codes and the resulted video. You can look at the following websites for inspiration on model and animation.
+<ul>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/07sp/projects/modeler/artifacts/">modeler artifacts, UW 457, Spring 2007</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/06au/projects/modeler/artifacts/">modeler artifacts, UW 457, Fall 2006</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/06sp/projects/modeler/artifacts/">modeler artifacts, UW 457, Spring 2006</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/05au/projects/modeler/artifacts/">modeler artifacts, UW 457, Fall 2005</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/05sp/projects/modeler/artifacts/">modeler artifacts, UW 457, Spring 2005</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/04au/projects/modeler/artifacts/">modeler artifacts, UW 457, Fall 2004</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/04sp/projects/modeler/artifacts/">modeler artifacts, UW 457, Spring 2004</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/07sp/projects/animator/artifacts/artifacts.html">animator artifacts, UW 457, Spring 2007</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/06au/projects/animator/artifacts/artifacts.html">animator artifacts, UW 457, Fall 2006</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/06sp/projects/animator/artifacts/artifacts.html">animator artifacts, UW 457, Spring 2006</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/05au/projects/animator/artifacts/artifacts.html">animator artifacts, UW 457, Fall 2005</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/05sp/projects/animator/artifacts/artifacts.html">animator artifacts, UW 457, Spring 2005</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/04au/projects/animator/artifacts/artifacts.html">animator artifacts, UW 457, Fall 2004</a>
+<li><a href="http://www.cs.washington.edu/education/courses/cse457/04sp/projects/animator/artifacts/artifacts.html">animator artifacts, UW 457, Spring 2004</a>
+</ul>
+<p>
+<font color=red>deadline = 11/24</font>
+</ul>
+-->
+
+<hr><h3><font color="#AA3333">Textbooks</font></h3>
+<ul>
+<li>Edward Angel.
+<a href="https://web.archive.org/web/20180115112440/http://www.pearsonhighered.com/educator/academic/product/0,3110,0321535863,00.html">
+<i>Interactive Computer Graphics: A Top-Down Approach with OpenGL&#8482;, 5th. ed.</i></a>,
+Addison-Wesley, 2009.
+<li>Peter Shirley, Michael Ashikhmin, Michael Gleicher, Stephen Marschner, Erik Reinhard, Kelvin Sung, William Thompson, and Peter Willemsen.
+<a href="https://web.archive.org/web/20180115112440/http://www.cs.utah.edu/~shirley/fcg2/">
+<i>Fundamentals of Computer Graphics, 2nd. ed.</i></a>,
+A K Peters, 2005.
+<!--
+<li>Dave Astle and Dave Durnil.
+<a href="http://www.courseptr.com/ptr_detail.cfm?group=Game%20Development&subcat=Wireless&isbn=1%2D59200%2D370%2D2">
+<i>OpenGL&reg; ES Game Development</i></a>,
+Thomson, 2004.
+<li>Randima Fernando and Mark J. Kilgard.
+<a href="http://developer.nvidia.com/object/cg_tutorial_home.html">
+<i>The Cg Tutorial: The Definitive Guide to Programmable Real-Time Graphics</i></a>,
+Addison-Wesley, 2003.
+-->
+<li>James D. Foley, Andries van Dam, Steven K. Feiner, John F. Hughes, and Richard L. Phillips.
+<a href="https://web.archive.org/web/20180115112440/http://www.awprofessional.com/catalog/product.asp?product_id={268045F6-75FA-4360-8CB5-5833BE33696F}">
+<i>Introduction to Computer Graphics</i></a>,
+Addison-Wesley, 1993.
+<!--
+<li>Michael Morrison.
+<a href="http://safari.samspublishing.com/?XmlId=0-672-32461-X">
+<i>Sams Teach Yourself Game Programming in 24 Hours</i></a>,
+Sams Publishing, 2002.
+<li>Randi J. Rost.
+<a href="http://www.awprofessional.com/title/0321197895">
+<i>OpenGL&reg; Shading Language</i></a>,
+Addison-Wesley, 2004.
+<li>Martin J. Wells.
+<a href="http://www.courseptr.com/ptr_detail.cfm?group=Game%20Development&subcat=Wireless&isbn=1%2D59200%2D118%2D1">
+<i>J2ME Game Programming</i></a>,
+Thomson, 2004.
+-->
+</ul>
+
+<hr><h3><font color="#AA3333">Reference</font></h3>
+<ul>
+<li>Dave Shreiner, Mason Woo, Jackie Neider, and Tom Davis.
+<a href="https://web.archive.org/web/20180115112440/http://www.informit.com/store/product.aspx?isbn=0321335732">
+<i>OpenGL&reg; Programming Guide: The Official Guide to Learning OpenGL, ver. 2, 5th. ed.</i></a>,
+Addison-Wesley, 2005.
+<!--
+<li>Randima Fernando.
+<a href="http://developer.nvidia.com/object/gpu_gems_home.html">
+<i>GPU Gems: Programming Techniques, Tips, and Tricks for Real-Time Graphics</i></a>,
+Addison-Wesley, 2004.
+-->
+<li>James D. Foley, Andries van Dam, Steven K. Feiner, and John F. Hughes.
+<a href="https://web.archive.org/web/20180115112440/http://www.awprofessional.com/catalog/product.asp?product_id={25B96B4D-59FA-4E13-BB7F-A1064EF55963}">
+<i>Computer Graphics: Principles and Practice in C, 2nd ed.</i></a>,
+Addison-Wesley, 1995.
+<!--
+<li>Michael O'Rourke.
+<a href="http://www.awprofessional.com/catalog/product.asp?product_id={25B96B4D-59FA-4E13-BB7F-A1064EF55963}">
+<i>Principles of Three-Dimensional Computer Animation: Modeling, Rendering, and Animating with 3D Computer Graphics, 3rd ed.</i></a>,
+Norton, 2003.
+-->
+<li>Alan Watt.
+<a href="https://web.archive.org/web/20180115112440/http://www.awprofessional.com/catalog/product.asp?product_id={900A7B8E-6674-4644-A64B-431D876D04F0}">
+<i>3D Computer Graphics, 3rd ed.</i></a>,
+Addison-Wesley, 1999.
+<!--
+<li>Alan Watt and Mark Watt.
+<a href="http://www.awprofessional.com/catalog/product.asp?product_id={57A4FAF9-58F3-43BD-B6BD-547D2E1D5C0B}">
+<i>Advanced Animation and Rendering Techniques: Theory and Practice</i></a>,
+Addison-Wesley, 1992.
+-->
+</ul>
+
+<hr><h3><font color="#AA3333">Grade Measurement</font></h3>
+<ul>
+Homework (three programs) + <!--Project + Examinations (twice or more) + -->Participants
+</ul>
+
+<hr><h3><font color="#AA3333">Pre-courses</font><font size="-1"> (better-to-have)</font></h3>
+<ul>
+Linear Algebra<br>
+Data Structures<br>
+Algorithms
+</ul>
+
+</font>
+
+<hr>
+
+<font size="-1">
+<address>
+Last Update: <script language="JavaScript">
+<!--
+document.write ( document.lastModified );
+//-->
+  </script>
+  </address>
+  </font>
+
+</body>
+
+</html>
+<!--
+     FILE ARCHIVED ON 11:24:40 Jan 15, 2018 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 09:31:04 Mar 16, 2021.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 434.668
+  LoadShardBlock: 399.603 (3)
+  exclusion.robots: 0.336
+  load_resource: 398.302 (2)
+  RedisCDXSource: 9.115
+  exclusion.robots.policy: 0.321
+  PetaboxLoader3.resolve: 77.698
+  CDXLines.iter: 21.584 (3)
+  PetaboxLoader3.datanode: 519.457 (5)
+  esindex: 0.014
+-->
