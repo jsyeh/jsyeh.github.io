@@ -1,0 +1,137 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="CG_icon96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="CG_icon32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="CG_icon16.png" sizes="16x16">
+<title>OpenGL圖學期中考-模擬練習</title>
+</head>
+
+<body>
+<h1>OpenGL圖學期中考-模擬練習</h1>
+<form>
+<p>考試練習：請在下方「淡黃文字區」輸入老師教的 OpenGL必背10函式(11行程式)。<br> 拼字(含大小寫)必須完全正確、參數的數目也需要正確，要合文法、能compile編譯，並記得加中文註解。<br>
+完成後，點擊按鈕【按我評分】自行模擬評分</p>
+<button type="button" id="button1" onclick="check2()">按我評分</button>
+<button type="button" id="button2" onclick="reset2()" style="display:none">繼續作答</button><br>
+<p id="show" style="color:red;width:50%;height:50%;position:absolute;display:block;left:50%"></p><br>
+
+<script>
+var lines="";
+var backup="";
+var lost="";
+var score=0;
+function reset2(){
+  document.getElementById("button2").style="display:none";
+  document.getElementById("button1").style="display:";
+  document.getElementById('show').innerHTML="繼續作答";
+  document.getElementById('code').value=backup;
+  document.getElementById('code').removeAttribute('readOnly');
+  document.getElementById('code').style="background:lightyellow";
+  document.getElementById('code').focus();
+}
+
+var item=[0,0,0,0,0, 0,0,0,0,0,0];
+
+function check2(){
+  backup = document.getElementById('code').value;
+  lines = backup.split('\n');
+  document.getElementById('code').removeAttribute('readOnly');
+  checkOneByOne();
+  
+  document.getElementById("button2").style="display:";
+  document.getElementById("button1").style="display:none";
+  document.getElementById("code").readOnly="true";
+  document.getElementById("code").style="color:gray";
+}
+var ans=[
+[/glBegin\((GL_POLYGON|GL_LINES|GL_TRIANGLES|GL_LINE_LOOP|GL_LINE_STRIP|GL_TRIANGLE_STRIP|GL_TRIANGLE_FAN|GL_QUADS|GL_QUAD_STRIP)\)/,"開始", 10],
+["glEnd()", "結束", 0],
+["glPushMatrix()", /(備份|矩陣)/, 10],
+["glPopMatrix()", /(還原|矩陣)/, 10],
+[/glTranslate[dfisb]\([^,]*,[^,]*,[^,]*\)/, /(移|動)/, 10],
+[/glRotate[dfisb]\([^,]*,[^,]*,[^,]*,[^,]*\)/, "轉", 10],
+[/glScale[dfisb]\([^,]*,[^,]*,[^,]*\)/, /(縮|放|大小)/, 10],
+[/glColor3([dfisb]|ub)/, "色", 10],
+[/glTexCoord(1[dfis]\([^,]*\)|2[dfis]\([^,]*,[^,]*\)|3[dfis]\([^,]*,[^,]*,[^,]*\))/, /(貼|圖|座標)/, 10],
+[/glNormal3[dfisb]\([^,]*,[^,]*,[^,]*\)/, /(光|法向量|法向)/, 10],
+[/glVertex(2[dfisb]\([^,]*,[^,]*\)|3[dfisb]\([^,]*,[^,]*,[^,]*\))/, "頂點", 10],
+];
+function checkOneByOne(){
+  score=0;
+  var good;
+  var i,a;
+  for(i=0; i<item.length;i++) item[i]=0;
+  for(i=0; i<lines.length; i++){
+    good=0;
+    for(a=0; a<ans.length; a++){
+      if(item[a]==1){good=1;continue;}
+      if( lines[i].search(ans[a][0])!=-1){
+        item[a]=1;
+        if("glEnd()"==ans[a][0] ){good=1; continue;}//glEnd()
+        if(lines[i].search(ans[a][1])!=-1){
+       	  score+=ans[a][2];
+          lines[i] += " (得到10分)";
+        }else{
+          score+=ans[a][2]/2;
+          lines[i] += " (漏寫中文,得5分)";
+        }
+		good=1;
+      }
+    }
+    if(good==0) lines[i] += " (不正確,得0分)";//TODO: 有時候沒顯示, 很奇怪。以後再找原因。
+  }//TODO: 之後也可以寫程式, 把空白行刪除, 方便剪貼評分結果到Moodle
+  showMissed();
+  document.getElementById('code').value = lines.join('\n');
+  document.getElementById('show').innerHTML="分數:"+score+"<br>"+lost;
+}
+function showMissed(){
+  lost="";//TODO: 其實這些可變成 textarea的 value方便評分時剪貼, 也方便手機等版面的流動
+  if(item[2]==0) lost+="<br>glPushMatrix();//備份矩陣";
+  if(item[4]==0) lost+="<br>&nbsp;&nbsp;&nbsp;&nbsp;glTranslatef(x,y,z);//移動";
+  if(item[5]==0) lost+="<br>&nbsp;&nbsp;&nbsp;&nbsp;glRotatef(angle,x,y,z);//轉動";
+  if(item[6]==0) lost+="<br>&nbsp;&nbsp;&nbsp;&nbsp;glScalef(x,y,z);//縮放";
+  if(item[0]==0) lost+="<br>&nbsp;&nbsp;&nbsp;&nbsp;glBegin(GL_POLYGON);//開始畫";
+  if(item[7]==0) lost+="<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;glColor3f(r,g,b);//色彩";
+  if(item[8]==0) lost+="<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;glTexCoord2f(tx,ty);//貼圖座標";
+  if(item[9]==0) lost+="<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;glNormal3f(nx,ny,nz);//打光的法向量";
+  if(item[10]==0)lost+="<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;glVertex2f(x,y);//頂點";
+  if(item[1]==0) lost+="<br>&nbsp;&nbsp;&nbsp;&nbsp;glEnd();//結束畫";
+  if(item[3]==0) lost+="<br>glPopMatrix();//還原矩陣";
+  if(lost!="") lost = "缺的函式有"+lost;
+}
+</script>
+
+<textarea type="text" id="code" cols="50" rows="15" style="border:2px solid red;position:absolute;left:10px;">
+1.  
+2.  
+3.  
+4.  
+5.  
+6.  
+7.  
+8.  
+9.  
+10. 
+11. </textarea>
+</form>
+<style>
+button{
+  font-size:20px;
+  box-shadow: 2px 2px 2px #888;
+}
+textarea{
+  border: 2px solid red;
+  background-color: lightyellow;
+  font-size: 20px;
+  resize: none;
+}
+body{
+  font-size:18px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+</style>
+</body>
+</html>
