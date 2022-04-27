@@ -1,7 +1,16 @@
-# jsyeh.org
+# jsyeh.org ＝ jsyeh.github.io
 Personal Web Page with Teaching Materials
 
-這是葉正聖老師的個人網站，裡面有葉正聖老師的簡介，並規劃在資料夾裡放一些教學的資料。
+葉正聖老師的個人網站，包含個人的簡介，並規劃在子目錄中放程式專案、教學的資料。
+
+註：本想將 repo 改名 jsyeh.org，但會影響 GitHub Pages 對我其他專案的網址認定。所以把 repo 改回 jsyeh.github.io，可幫助以下專案網址「短而有力」
+- [jsyeh.org/countdown](https://jsyeh.org/countdown)
+- [jsyeh.org/ieee754](https://jsyeh.org/ieee754)
+- [jsyeh.org/game16card](https://jsyeh.org/game16card)
+- [jsyeh.org/processing](https://jsyeh.org/processing)
+- [jsyeh.org/marbling](https://jsyeh.org/marbling)
+- [jsyeh.org/blokee](https://jsyeh.org/blokee)
+- 
 
 ## 3dcg10
 這個資料夾裡，放了電腦圖學課（計算機圖學）的上課資料，資料修改自陳炳宇教授的 3dcg 授課資料，供數位內容學院的上課教材。
