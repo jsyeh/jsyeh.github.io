@@ -1,11 +1,12 @@
 //2020-04-22 我想做可 Visualize T-R-T 觀念的工具
 // Left: 400x400 OpenGL drawing area, 限制最多畫6個彩色物件,以免畫面凌亂
 // Right: OpenGL coding area
-//2020-04-23 實作trello-like的board移動
 //2020-04-22 Idea: 突然想到,可嘗試做 電腦圖學之父 Ivan Sutherland 的 sketchpad
 //2020-04-22 Idea: 用 Processing寫出 Text Editor,
 //  可scroll可縮放文字, 方便秀程式碼、方便調順序、方便改參數
 //Q: Code Board在drag時, Object會突然從半透明變成不透明, 很奇怪, 要查 myDrawNew()
+//2020-04-23 實作trello-like的board移動
+//2023-03-15 找到程式, 改size(), 修正 glTranslatef(), 'r' reset angle
 class Board {
   String code;
   int x=0, y=0;//position位置
@@ -75,11 +76,11 @@ class Board {
   }
   void updateCode(){
     if(glType==1){
-      code = "glTranslate("+nf(tx,1,2)+","+nf(-ty,1,2)+");";
+      code = "glTranslatef("+nf(tx,1,2)+", "+nf(-ty,1,2)+", 0);";
     }
   }
 }
-String []code={"glPushMatrix", "glTranslate", "glRotatef", "glScalef;", "myDrawObj();", "glPopMatrix"};
+//String []code={"glPushMatrix()", "glTranslatef()", "glRotatef()", "glScalef()", "myDrawObj();", "glPopMatrix()"};
 ArrayList<Board> currentCode;
 Board movingBoard=null;
 ArrayList<PVector> curve=null;
@@ -90,16 +91,16 @@ int topC=0;
 int rotAngle=0;
 boolean bKeepRotating=false;
 void setup() {
-  size(900, 400, P3D);hint(DISABLE_DEPTH_TEST);
+  size(900, 600, P3D);hint(DISABLE_DEPTH_TEST);
   textSize(32);
   textAlign(LEFT, TOP);
   all = new ArrayList<ArrayList<PVector>>();
   currentCode = new ArrayList<Board>();
   int i=0;
   currentCode.add( new Board("glPushMatrix();", 0, 420, 50+40*i++) );
-  currentCode.add( new Board("glTranslatef(0,0,0);", 1, 440, 50+40*i++) );
-  currentCode.add( new Board("glRotatef(angle,0,0,1);", 2, 440, 50+40*i++) );
-  currentCode.add( new Board("glTranslatef(0,0,0);", 1, 440, 50+40*i++) );
+  currentCode.add( new Board("glTranslatef(0, 0, 0);", 1, 440, 50+40*i++) );
+  currentCode.add( new Board("glRotatef(angle, 0, 0, 1);", 2, 440, 50+40*i++) );
+  currentCode.add( new Board("glTranslatef(0, 0, 0);", 1, 440, 50+40*i++) );
   currentCode.add( new Board("glPopMatrix();", 5, 420, 50+40*i++) );
 }
 void draw() {
@@ -312,6 +313,7 @@ void mouseReleased() {
 }
 void keyPressed() {
   if (key==' ') bKeepRotating = !bKeepRotating;
+  if (key=='r') rotAngle = 0;
   if (key=='1' && movingBoard==null) {
     movingBoard=new Board("glPushMatrix();", mouseX, mouseY);
   }
